@@ -3,6 +3,7 @@
 namespace Ebay\Commerce\Catalog\Api;
 
 use Ebay\Commerce\Catalog\Model\Product as ProductModel;
+use OpenAPI\Runtime\UnexpectedResponse;
 
 class Product extends AbstractAPI
 {
@@ -20,9 +21,9 @@ class Product extends AbstractAPI
      *                     discovered by issuing the search call and examining the value of the
      *                     productSummaries.epid field for the desired returned product summary.
      *
-     * @return ProductModel
+     * @return ProductModel|UnexpectedResponse
      */
-    public function get(string $epid): ProductModel
+    public function get(string $epid)
     {
         return $this->request(
         'getProduct',

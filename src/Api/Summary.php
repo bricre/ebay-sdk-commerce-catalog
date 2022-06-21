@@ -3,6 +3,7 @@
 namespace Ebay\Commerce\Catalog\Api;
 
 use Ebay\Commerce\Catalog\Model\ProductSearchResponse;
+use OpenAPI\Runtime\UnexpectedResponse;
 
 class Summary extends AbstractAPI
 {
@@ -146,9 +147,9 @@ class Summary extends AbstractAPI
      *                       gtin, or mpn parameter with a valid value. You cannot use the q parameter in the
      *                       same call with either the gtin parameter or the mpn parameter.
      *
-     * @return ProductSearchResponse
+     * @return ProductSearchResponse|UnexpectedResponse
      */
-    public function search(array $queries = []): ProductSearchResponse
+    public function search(array $queries = [])
     {
         return $this->request(
         'search',
